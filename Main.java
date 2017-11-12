@@ -3,7 +3,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 
 public class Main {
-    private static String portDescription = "/dev/ttyACM1";
     private static int baudRate = 9600;
     
     public static void main(String[] args) {
@@ -11,16 +10,13 @@ public class Main {
         System.out.println("Up and at 'em!");
         System.out.println("Enter port: ");
         String port = sc.next();
-        portDescription = port;
         System.out.println("Enter email: ");
         String email = sc.next();
-        String prior = "";
-        System.out.println("Port: " + port);
-        Arduino arduino = new Arduino(portDescription, baudRate);
+        Arduino arduino = new Arduino(port, baudRate);
         arduino.openConnection();
         while (true) {
-            String input = arduino.serialRead();
-            if (input != prior) {
+            String input = arduino.serialRead(1);
+            if (input != "") {
                 System.out.println("Serial input detected");
                 try {
                     Mail.send(email, "You clicked a button!", "Congratulations!  You have graduated from the school of clicking buttons!");
@@ -29,7 +25,6 @@ public class Main {
                     break;
                 }
             }
-            prior = input;
             try {
                 TimeUnit.SECONDS.sleep(10);
             } catch (Throwable err) {
