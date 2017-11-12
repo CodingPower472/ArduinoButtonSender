@@ -10,10 +10,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class Mail {
-    static private String email = CredentialHolder.email;
-    static private String pswd = CredentialHolder.pswd;
     
-    public static void send(String recipient, String title, String message) throws AddressException, MessagingException {
+    public static void send(String email, String pswd, String recipient, String title, String message) throws AddressException, MessagingException {
         Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
         final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
         Properties props = System.getProperties();

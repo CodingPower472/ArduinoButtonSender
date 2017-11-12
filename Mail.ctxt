@@ -1,5 +1,5 @@
 #BlueJ class context
 comment0.target=Mail
-comment1.params=recipient\ title\ message
-comment1.target=void\ send(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.params=email\ pswd\ recipient\ title\ message
+comment1.target=void\ send(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
 numComments=2
