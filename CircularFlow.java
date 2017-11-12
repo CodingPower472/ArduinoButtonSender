@@ -24,11 +24,12 @@ public class CircularFlow {
         System.out.println("Circular flow program initiated");
         PORT = getPort("port.txt");
         Arduino arduino = new Arduino(PORT, BAUD);
+        arduino.openConnection();
         while (true) {
             String input = arduino.serialRead(1);
             if (input.equals("a")) {
                 try {
-                    TimeUnit.SECONDS.sleep(5);
+                    TimeUnit.SECONDS.sleep(2);
                     arduino.serialWrite("b");
                 } catch (Throwable err) {
                     System.out.println(err);
