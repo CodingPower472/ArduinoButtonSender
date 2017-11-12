@@ -30,6 +30,7 @@ public class Main {
         while (true) {
             String input = arduino.serialRead(1);
             if (input != "") {
+                arduino.serialWrite("digitalWrite(ledpin, HIGH); digitalWrite(ledpin, HIGH);delay(2000);digitalWrite(ledpin, LOW);delay(2000);");
                 System.out.println("Serial input detected");
                 try {
                     Mail.send(email, pswd, emailTo, "You clicked a button!", "Congratulations!  You have graduated from the school of clicking buttons!");
