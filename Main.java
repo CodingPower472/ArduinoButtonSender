@@ -19,8 +19,8 @@ public class Main {
         System.out.println("Port: " + port);
         while (true) {
             String input = arduino.serialRead();
-            System.out.println("Serial input detected");
             if (input != prior) {
+                System.out.println("Serial input detected");
                 try {
                     Mail.send(email, "You clicked a button!", "Congratulations!  You have graduated from the school of clicking buttons!");
                 } catch (Throwable err) {
