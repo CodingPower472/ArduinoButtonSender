@@ -8,15 +8,16 @@ public class Main {
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Arduino arduino = new Arduino(portDescription, baudRate);
-        arduino.openConnection();
         System.out.println("Up and at 'em!");
         System.out.println("Enter port: ");
         String port = sc.next();
         portDescription = port;
+        System.out.println("Enter email: ");
         String email = sc.next();
         String prior = "";
         System.out.println("Port: " + port);
+        Arduino arduino = new Arduino(portDescription, baudRate);
+        arduino.openConnection();
         while (true) {
             String input = arduino.serialRead();
             if (input != prior) {
