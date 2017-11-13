@@ -27,6 +27,9 @@ public class CircularFlow {
         arduino.openConnection();
         while (true) {
             String input = arduino.serialRead(1);
+            if (!input.equals("")) {
+                System.out.println("We have a signal!");
+            }
             if (input.equals("a")) {
                 try {
                     TimeUnit.SECONDS.sleep(2);
