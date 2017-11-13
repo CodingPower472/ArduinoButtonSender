@@ -28,10 +28,7 @@ public class CircularFlow {
         while (true) {
             String input = arduino.serialRead(1);
             if (!input.equals("")) {
-                System.out.println("We have a signal: " + input);
-            }
-            if (input.equals("a")) {
-                System.out.println("We have an a");
+                System.out.println("We have something");
                 try {
                     TimeUnit.SECONDS.sleep(2);
                     arduino.serialWrite("b");
